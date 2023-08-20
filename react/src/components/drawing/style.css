@@ -1,0 +1,515 @@
+*
+{
+    box-sizing: border-box;
+}
+
+body 
+{
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/*body::-webkit-scrollbar
+{
+    display: none;
+}*/
+
+button
+{
+    cursor: pointer;
+}
+
+.box::-webkit-scrollbar
+{
+    display: none;
+}
+
+.box
+{
+    overflow: auto;
+    width: 100vw;
+    height: 100vh;
+}
+
+#canvas
+{
+    /*box-shadow: 0 0 15px rgba(0, 0, 0, 0.137);*/
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+}
+/*#canvas:hover
+{
+    border: 1px solid rgba(8, 142, 252, 0.829);
+}*/
+
+.top_nav
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    gap: 1rem;
+    padding: .8rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.212);
+    max-width: 45rem;
+    border-radius: 1rem;
+    margin-top: 1rem;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%,0);
+    background-color: white;
+    z-index: 1;
+    position:  fixed;
+    /* flex-wrap: wrap; */
+}
+
+.top_nav button 
+{
+    width: 4rem;
+    height: 4rem;
+    display: grid;
+    place-items: center;
+    border: none;
+    background: none;
+    font-size: 2rem;
+    box-sizing: border-box;
+    transition: .3s;
+    border-radius: 1rem;
+    /* border: 1px solid red; */
+}
+
+.top_nav button:hover
+{
+    color: #6965Db;
+}
+
+
+.top_nav .stroke_box
+{
+    position: absolute;
+    z-index: 1000;
+    top: 100%;
+    left: 40%;
+    padding: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.212);
+    border-radius: 1rem;
+    transition: .3s;
+    background-color: white;
+    margin-top: .5rem;
+}
+
+.top_nav .stroke_box label
+{
+    display: block;
+    text-align: left;
+    font-size: 1.8rem;
+    margin-bottom: .2rem;
+}
+
+.top_nav .stroke_box input
+{
+    padding: 1rem;
+    border-radius: .8rem;
+    border: none;
+    outline: none;
+    background: none;
+    border: 1px solid rgba(0,0,0,.5);
+    font-size: 1.5rem;
+    width: 8rem;
+}
+
+.top_nav .stroke_box input:focus
+{
+    border: .1rem solid rgba(8, 142, 252, 0.829);
+}
+
+.top_nav .color_picker
+{
+    position: absolute;
+    z-index: 1000;
+    top: 100%;
+    left: 40%;
+    padding: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.212);
+    border-radius: 1rem;
+    transition: .3s;
+    background-color: white;
+    margin-top: .5rem;
+}
+
+.top_nav .color_picker .react-color-picker
+{
+    display: flex;
+}
+
+.left_nav
+{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.212);
+    padding: 1.2rem 1rem; 
+    width: 40rem;
+    position: absolute;
+    top: 0%;
+    left: 1%;
+    margin-top: 1rem;
+    border-radius: 1rem;
+    transition: .3s;
+    background-color: white;
+    z-index: 1;
+    position: fixed;
+}
+
+.left_nav .buttons
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    margin-top: 0 !important;
+}
+
+.left_nav .buttons button 
+{
+    width: 4rem;
+    height: 4rem;
+    display: grid;
+    place-items: center;
+    border: none;
+    background: none;
+    font-size: 2rem;
+    box-sizing: border-box;
+    transition: .3s;
+    border-radius: 1rem;
+    background-color: #c1b5f7a9;
+    transition: .3s;
+}
+
+.left_nav .buttons button:hover
+{
+    background-color: #c1b5f7d8;
+}
+
+.left_nav > div:last-child
+{
+    display: flex;
+    margin-top: 2rem;
+    align-items: center;
+    padding: 0;
+    gap: 1rem;
+}
+
+.left_nav .color 
+{
+    width: 4rem;
+    height: 4rem;
+    /* background-color: aqua; */
+    border-radius: 1rem;
+}
+
+.left_nav .input
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border: .1rem solid #c1b5f7a9;
+    max-width: 18rem;
+    height: 4rem;
+    border-radius: 1rem;
+}
+
+.left_nav .input span
+{
+    width: 30%;
+    height: 100%;
+    display: grid;
+    place-content: center;
+    font-size: 2rem;
+    background-color: #c1b5f7a9;
+    border-radius: .9rem 0 0 .9rem;
+}
+
+.left_nav .input input
+{
+    background: none;
+    border: none;
+    outline: none;
+    width: 70%;
+    height: 100%;
+    font-size: 1.8rem;
+    padding-left: 1rem;
+}
+
+.menu
+{
+    font-size: 4rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    height: 4rem;
+    width: 4rem;
+    display: grid;
+    place-items: center;
+    padding: .8rem;
+    display: none;
+    position: fixed;
+    z-index: 100;
+    cursor: pointer;
+}
+
+.message-container
+{
+    width: 34rem;
+    max-width: 34rem;
+    height: 100vh;
+    background: #fff;
+    position: fixed;
+    z-index: 100;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.212);
+    right: -100%;
+    transition: all .5s;
+}
+
+.message-container.active
+{
+    right: 0%;
+}
+
+.message-box
+{
+    height: 93%;
+    padding: .3rem;
+    box-sizing: border-box;
+}
+
+.send-box
+{
+    position: absolute;
+    bottom: .5%;
+    width: 100%;
+    display: flex;
+    height: 6.5%;
+}
+
+.send-box input
+{
+    width: 80%;
+    padding: 1rem .5rem;
+    outline: none;
+    border: .1rem solid #c1b5f7a9;
+    border-radius: .8rem;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    font-size: 1.5rem;
+}
+
+.send-box button
+{
+    width: 18%;
+    padding: 1rem .5rem;
+    border-radius: .8rem;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    border: none;
+    background-color: #c1b5f7a9;
+    font-size: 2rem;
+    display: grid;
+    place-items: center;
+    transition: all .3s;
+}
+
+.send-box button:hover
+{
+    background-color: #c1b5f7d8;
+}
+
+.message
+{
+    padding: 1vmax;
+    margin: 1vmax;
+    border-radius: 0.5vmax;
+    display: inline-block;
+    clear: both;
+    font-size: 1.2vmax;
+    font-family: 'Roboto';
+}
+
+.right
+{
+    float: right;
+    background-color: crimson;
+    color: white;
+    text-align: center;
+}
+
+.left
+{
+    float: left;
+    text-align: left;
+    background-color: rgb(196, 255, 184);
+}
+
+.unseen
+{
+    position: relative;
+}
+
+.unseen span
+{
+    position: absolute;
+    top: -5%;
+    right: -5%;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: crimson;
+    padding: .1rem;
+    color: #000;
+    display: grid;
+    place-items: center;
+}
+
+.typing
+{
+    margin: 1vmax;
+    clear: both;
+    font-size: 1.6rem;
+    float: left;
+    text-align: left;
+    color: lightgreen;
+}
+
+.textBox textarea
+{
+    box-sizing: border-box;
+    width: 100%;
+    height: 8rem;
+    padding: .5rem;
+    border-radius: 0.8rem;
+    border: none;
+    outline: none;
+    background: none;
+    border: 1px solid rgba(0,0,0,.5);
+    font-size: 1.5rem;
+}
+
+.textBox > div > input
+{
+    width: 5rem;
+}
+
+.textBox > div
+{
+    margin-top: .5rem;
+}
+
+.textBox > div > button
+{
+    width: 7rem;
+    height: 4rem;
+    display: grid;
+    place-items: center;
+    border: none;
+    font-size: 2rem;
+    box-sizing: border-box;
+    transition: .3s;
+    border-radius: 1rem;
+    background-color: #c1b5f7a9;
+    transition: .3s;
+    margin-left: auto;
+}
+
+.textBox >  div
+{
+    display: flex;
+    padding: 0 .8rem;
+}
+
+
+
+
+                                            /* responsive code  */
+
+@media (max-width: 1080px)
+{
+    .top_nav
+    {
+        max-width: 40rem;
+    }
+    .left_nav 
+    {
+        width: 40rem;
+    }
+}
+
+@media (max-width: 980px)
+{
+    .left_nav 
+    {
+       left: -100%;
+       top: 10%;
+       z-index: 100;
+    }
+    .left_nav.active
+    {
+        left: 1%;
+        /* margin-top: 7.5rem; */
+    }
+    .menu{
+        display: grid;
+    }
+}
+
+@media (max-width: 530px)
+{
+    .top_nav
+    {
+        /* width: 35rem; */
+        max-width: 35rem;
+        gap: .5rem;
+    }
+}
+
+@media (max-width: 480px)
+{
+    .top_nav
+    {
+        /* width: 30rem; */
+        max-width: 30rem;
+        gap: .3rem;
+        flex-wrap: wrap;
+    }
+
+    .top_nav .stroke_box
+{
+    left: 15%;
+}
+    /* .top_nav button
+    {
+        width: 3.5rem;
+        height: 3.5rem;
+        font-size: 1.5rem;
+    } */
+    /* .menu
+    {
+        padding: 0%;
+    } */
+}
+
+@media (max-width: 372px)
+{
+    .top_nav
+    {
+        width: 20rem;
+        width: 40rem;
+    }
+}
+
+@media (max-width: 300px)
+{
+    .top_nav
+    {
+        width: 15rem;
+        width: 40rem;
+    }
+}
